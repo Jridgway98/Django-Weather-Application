@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+City CO2
+{% endblock %}
+
+{% block content %}
+	<img style="padding:100px;" src="data:image/png;base64, {{chart|safe}}">
+
+{% endblock %}
+

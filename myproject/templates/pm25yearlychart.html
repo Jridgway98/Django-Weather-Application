@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Yearly PM2.5 Concentration
+{% endblock %}
+
+{% block content %}
+
+	<img style="padding-bottom:100px;" src="data:image/png;base64, {{chart|safe}}">
+
+{% endblock %}
+

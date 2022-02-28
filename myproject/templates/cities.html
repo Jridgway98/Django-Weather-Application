@@ -1,0 +1,101 @@
+<!-- Contains code in progress -->
+
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% block title %}City Data{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Cities | <a href="{% url 'vehicles' %}">Vehicles </a>| <a href="{% url 'powerplants' %}">Power Plants</a></li>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  $(document).ready( function () {
+    $('#citytable').DataTable();
+} );
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- <form method="GET">
+{{ filter.form|bootstrap }}
+<button type="submit" class="btn btn-primary">Search</button>  
+</form> -->
+
+  <table id="citytable" class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>City</th>
+        <th>Sensor Location</th>
+        <th>Wind Direction</th>
+        <th>Wind Speed</th>
+        <th>Humidity</th>
+        <th>Temperature</th>
+        <th>CO</th>
+        <th>SO2</th>
+        <th>PM10</th>
+        <th>NO2</th>
+        <th>O3_8</th>
+        <th>PM25</th>
+        <th>Created at</th>
+        <!-- <th>Vehicles</th>
+        <th>Power Plants</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for city in filter.qs %}
+        <tr>
+          <td class="align-middle">
+            {{ city.name }}, {{ city.state }}
+          </td>
+          <td class="align-middle">
+            {{ city.sensor_location }}
+          </td>
+          <td class="align-middle">
+            {{ city.wind_direction }}
+          </td>
+          <td class="align-middle">
+            {{ city.wind_speed }}
+          </td>
+          <td class="align-middle">
+            {{ city.humidity }}
+          </td>
+          <td class="align-middle">
+            {{ city.temperature }}
+          </td>
+          <td class="align-middle">
+            {{ city.CO }}
+          </td>
+          <td class="align-middle">
+            {{ city.SO2 }}
+          </td>
+          <td class="align-middle">
+            {{ city.PM10 }}
+          </td>
+          <td class="align-middle">
+            {{ city.NO2 }}
+          </td>
+          <td class="align-middle">
+            {{ city.O3_8 }}
+          </td>
+          <td class="align-middle">
+            {{ city.PM25 }}
+          </td>
+          <td class="align-middle">
+            {{ city.time_created }}
+          </td>
+           <!-- <td class="align-middle">
+            <a href="{% url 'city_vehicle' city.pk %}">Vehicles in {{ city.name }} {{ city.state }}</a>
+         </td>
+         <td class="align-middle">
+            <a href="#" >Power Plants in {{ city.name }} {{ city.state }}</a>
+         </td> -->
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

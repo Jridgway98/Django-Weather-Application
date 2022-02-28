@@ -1,0 +1,67 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Vehicle Data{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active"><a href="{% url 'cities' %}">Cities </a> | Vehicles | <a href="{% url 'powerplants' %}">Power Plants</a></li>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  $(document).ready( function () {
+    $('#vehicletable').DataTable();
+} );
+</script>
+{% endblock %}
+
+{% block content %}
+  <table class="table" id="vehicletable">
+    <thead class="thead-inverse">
+      <tr>
+        <th>City</th>
+        <th>Model</th>
+        <th>Manufacturer</th>
+        <th>Year</th>
+        <th>CO</th>
+        <th>HC</th>
+        <th>NO</th>
+        <th>CO2</th>
+        <th>Created at</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for vehicle in vehicles %}
+        <tr>
+          <td>
+            {{ vehicle.city.name }}, {{ vehicle.city.state }}
+          </td>
+          <td class="align-middle">
+            {{ vehicle.name }}
+          </td>
+          <td class="align-middle">
+            {{ vehicle.manufacturer }}
+          </td>
+          <td class="align-middle">
+            {{ vehicle.year }}
+          </td>
+          <td class="align-middle">
+            {{ vehicle.CO }}
+          </td>
+          <td class="align-middle">
+            {{ vehicle.HC }}
+          </td>
+          <td class="align-middle">
+            {{ vehicle.NO }}
+          </td>
+          <td class="align-middle">
+            {{ vehicle.CO2 }}
+          </td>
+          <td class="align-middle">
+            {{ vehicle.time_created }}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

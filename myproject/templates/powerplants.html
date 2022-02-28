@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+
+{% block title %}City Data{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active"><a href="{% url 'cities' %}">Cities</a> | <a href="{% url 'vehicles' %}">Vehicles </a> | Power Plants</li>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  $(document).ready( function () {
+    $('#powerplanttable').DataTable();
+} );
+</script>
+{% endblock %}
+
+{% block content %}
+  <table class="table" id="powerplanttable">
+    <thead class="thead-inverse">
+      <tr>
+        <th>City</th>
+        <th>Name</th>
+        <th>CO</th>
+        <th>HC</th>
+        <th>NO</th>
+        <th>CO2</th>
+        <th>Created at</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for powerplant in powerplants %}
+        <tr>
+          <td>
+            {{ powerplant.city.name }}, {{ powerplant.city.state }}
+          </td>
+          <td class="align-middle">
+            {{ powerplant.name }}
+          </td>
+          <td class="align-middle">
+            {{ powerplant.CO }}
+          </td>
+          <td class="align-middle">
+            {{ powerplant.HC }}
+          </td>
+          <td class="align-middle">
+            {{ powerplant.NO }}
+          </td>
+          <td class="align-middle">
+            {{ powerplant.CO2 }}
+          </td>
+          <td class="align-middle">
+            {{ powerplant.time_created }}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!-- Contains code in progress -->
+
+{% extends 'base.html' %}
+
+{% block title %}{{ city.name }} vehicle data{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active"><a href=""> Cities |</a> Vehicles | <a href="#">Power Plants</a></li>
+{% endblock %}
+
+
+<!-- {% block content %}
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>City</th>
+        <th>State</th>
+        <th>Vehicles</th>
+        <th>Power Plants</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for city in cities %}
+        <tr>
+          <td>
+            {{ city.name }}
+          </td>
+          <td class="align-middle">
+            {{ city.state }}
+          </td>
+           <td class="align-middle">
+            <a href="#" >Vehicles in {{ city.name }} {{ city.state }}</a>
+         </td>
+         <td class="align-middle">
+            <a href="#" >Power Plants in {{ city.name }} {{ city.state }}</a>
+         </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %} -->

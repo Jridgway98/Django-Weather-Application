@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Pollutant Concentrations
+{% endblock %}
+
+{% block content %}
+
+	<img style="padding-bottom:100px;" src="data:image/png;base64, {{chart|safe}}">
+
+{% endblock %}
+

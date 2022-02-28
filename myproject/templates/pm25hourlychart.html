@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+PM2.5 Hourly Concentration
+{% endblock %}
+
+{% block content %}
+
+	<img style="padding-bottom:100px;" src="data:image/png;base64, {{chart|safe}}">
+
+{% endblock %}
+
